@@ -23,7 +23,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn sum_is_correct() {
+    fn square_is_correct() {
         assert_eq!(square(2.0), (8.0, 4.0, 2.83));
         assert_eq!(square(4.0), (16.0, 16.0, 5.66))
     }
