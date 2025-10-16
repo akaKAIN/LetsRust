@@ -48,14 +48,24 @@ fn season(month: u8) -> String {
 
 fn bank(sum: f64, years: u16) -> f64 {
     let mut result = sum;
-    for year in 0..years {
+    for _year in 0..years {
         result += result / 10.0;
     }
 
     result
 }
 
-
+// Написать функцию is_prime, принимающую 1 аргумент
+// — число от 0 до 1000, и возвращающую True, если оно
+// простое, и False - иначе.
+fn is_prime(n: u16) -> bool {
+    for i in 2..n {
+        if n % i == 0 {
+            return false;
+        }
+    }
+    return true;
+}
 
 #[cfg(test)]
 mod tests {
@@ -101,4 +111,12 @@ mod tests {
         assert_eq!(bank(100.0, 2), 121.0);
     }
 
+    #[test]
+    fn check_is_prime() {
+        assert_eq!(is_prime(5), true);
+        assert_eq!(is_prime(6), false);
+        assert_eq!(is_prime(7), true);
+        assert_eq!(is_prime(13), true);
+        assert_eq!(is_prime(29), true);
+    }
 }
