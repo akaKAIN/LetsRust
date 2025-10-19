@@ -1,3 +1,5 @@
+use chrono::{Datelike, Local, NaiveDate };
+
 fn main() {
     println!("Hello, world!");
     let r = square(4.0);
@@ -67,6 +69,17 @@ fn is_prime(n: u16) -> bool {
     return true;
 }
 
+//Написать функцию date, принимающую 3 аргумента — день, месяц и год.
+// Вернуть True, если такая дата есть в нашем календаре, и False иначе.
+
+fn date(dd: u32, mm: u32, yy: i32) -> bool {
+    let now = Local::now();
+    let target_date = NaiveDate::from_ymd_opt(yy, mm, dd).unwrap();
+    let current_date = NaiveDate::from_ymd_opt(now.year(), now.month(), now.day()).unwrap();
+    println!("{}", target_date < current_date);
+    return target_date < current_date;
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -118,5 +131,10 @@ mod tests {
         assert_eq!(is_prime(7), true);
         assert_eq!(is_prime(13), true);
         assert_eq!(is_prime(29), true);
+    }
+
+    #[test]
+    fn date_is_correct() {
+        assert_eq!(date(5, 12, 2002), true);
     }
 }
