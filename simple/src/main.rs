@@ -80,6 +80,18 @@ fn date(dd: u32, mm: u32, yy: i32) -> bool {
     return target_date < current_date;
 }
 
+// Проверьте, отрицательное оно или нет. Выведите об этом информацию в консоль.
+fn is_negative() -> bool {
+    let num = 123;
+    if (num < 0) {
+        println!("{} is negative", num);
+    } else {
+        println!("{} is positive", num);
+    }
+
+    num < 0
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
