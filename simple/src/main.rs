@@ -1,3 +1,4 @@
+use std::fs::File;
 use chrono::{Datelike, Local, NaiveDate };
 
 fn main() {
@@ -90,6 +91,10 @@ fn is_negative() -> bool {
     }
 
     num < 0
+}
+
+fn open_file(path: &str) -> File {
+    File::open(path).expect(&*format!("File: {path} - not found"))
 }
 
 #[cfg(test)]
