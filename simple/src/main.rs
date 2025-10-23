@@ -1,3 +1,4 @@
+use std::fs::File;
 use chrono::{Datelike, Local, NaiveDate };
 
 fn main() {
@@ -78,6 +79,22 @@ fn date(dd: u32, mm: u32, yy: i32) -> bool {
     let current_date = NaiveDate::from_ymd_opt(now.year(), now.month(), now.day()).unwrap();
     println!("{}", target_date < current_date);
     return target_date < current_date;
+}
+
+// Проверьте, отрицательное оно или нет. Выведите об этом информацию в консоль.
+fn is_negative() -> bool {
+    let num = 123;
+    if (num < 0) {
+        println!("{} is negative", num);
+    } else {
+        println!("{} is positive", num);
+    }
+
+    num < 0
+}
+
+fn open_file(path: &str) -> File {
+    File::open(path).expect(&*format!("File: {path} - not found"))
 }
 
 #[cfg(test)]
