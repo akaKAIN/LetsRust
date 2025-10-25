@@ -67,7 +67,8 @@ fn is_prime(n: u16) -> bool {
             return false;
         }
     }
-    return true;
+
+    true
 }
 
 //Написать функцию date, принимающую 3 аргумента — день, месяц и год.
